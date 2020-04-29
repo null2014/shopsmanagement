@@ -56,22 +56,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/products',
-    component: Layout,
-    redirect: '/products/list',
-    name: 'Products',
-    alwaysShow: true,
-    meta: { title: '商品管理', icon: 'example' },
-    children: [
-      {
-        path: 'list',
-        name: 'List',
-        component: () => import('@/views/products/index'),
-        meta: { title: '商品列表', icon: 'table' }
-      }
-    ]
-  },
-  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
@@ -92,19 +76,7 @@ export const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/products',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: 'edit/:id',
-        name: 'Edit',
-        component: () => import('@/views/products/edit'),
-        meta: { title: '編輯商品', icon: 'form' }
-      }
-    ]
-  },
+
   {
     path: '/form',
     component: Layout,
