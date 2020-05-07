@@ -1,6 +1,7 @@
 <template>
   <div class="app-container">
     <el-table
+      v-loading="listLoading"
       :data="list"
       element-loading-text="Loading"
       border
@@ -17,9 +18,9 @@
           {{ scope.row.id }}
         </template>
       </el-table-column>
-      <el-table-column label="商品名稱" width="110" align="center">
+      <el-table-column label="商品名稱" width="150" align="center">
         <template slot-scope="scope">
-          {{ scope.row.name }}
+          {{ scope.row.typeName }}
         </template>
       </el-table-column>
       <el-table-column label="商品價格" width="110" align="center">
@@ -47,6 +48,7 @@
 </template>
 
 <script>
+import { getList } from '@/api/product'
 
 export default {
   filters: {
@@ -61,55 +63,19 @@ export default {
   },
   data() {
     return {
-      list: [{
-        id: 5,
-        name: 'HUAWEI P30',
-        typeName: 'sss',
-        price: 2800,
-        salePrice: 3900,
-        createTime: '2019-10-10 12:10:12',
-        updateTime: '2019-10-10 13:10:12',
-        createUser: 1,
-        updataUser: 1
-      },
-      {
-        id: 6,
-        name: 'HUAWEI P30 Pro',
-        typeName: 'sss',
-        price: 3600,
-        salePrice: 5299,
-        createTime: '2019-10-10 12:10:12',
-        updateTime: '2019-10-10 13:10:12',
-        createUser: 1,
-        updataUser: 1
-      },
-      {
-        id: 10,
-        name: 'iPhone 11',
-        typeName: 'sss',
-        price: 8000,
-        salePrice: 9999,
-        createTime: '2019-10-10 12:10:12',
-        updateTime: '2019-11-10 13:10:12',
-        createUser: 1,
-        updataUser: 1
-      }]
+      list: null,
+      listLoading: true
     }
   },
   created() {
     this.fetchData()
   },
   methods: {
-    editPro(id) {
-      this.$router.push('/products/edit/'+ id,)
-    },
     fetchData() {
-      var vm = this
-      this.axios({
-        methods: 'GET',
-        url: 'http://localhost:8090/product/list'
-      }).then(function(response) {
-        vm.list = response.data
+      this.listLoading = true
+      getList().then(response => {
+        this.list = response.data.items
+        this.listLoading = false
       })
     }
   }
