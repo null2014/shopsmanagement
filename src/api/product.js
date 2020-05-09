@@ -7,3 +7,11 @@ export function getList(params) {
     params
   })
 }
+
+export function updateProduct(data) {
+  return request({
+    url: '/product/update',
+    method: 'post',
+    data
+  })
+}

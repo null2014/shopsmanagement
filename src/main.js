@@ -11,10 +11,12 @@ import App from './App'
 import store from './store'
 import router from './router'
 import i18n from './lang'
+import echarts from 'echarts'
 
 import '@/icons' // icon
 import '@/permission' // permission control
 
+Vue.prototype.$eacharts = echarts
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

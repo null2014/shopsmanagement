@@ -159,5 +159,21 @@ export const asyncRoutes = [
         meta: { title: '商品列表', icon: 'table' }
       }
     ]
+  },
+  {
+    path: '/charts',
+    component: 'layout/Layout',
+    redirect: 'noRedirect',
+    name: 'Charts',
+    alwaysShow: true,
+    meta: { title: 'Charts', icon: 'example', roles: ['admin'] },
+    children: [
+      {
+        path: 'mix-chart',
+        name: 'MixChart',
+        component: () => import('@/views/charts/mix-chart'),
+        meta: { title: 'MixChart', icon: 'table' }
+      }
+    ]
   }
 ]

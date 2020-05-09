@@ -77,6 +77,9 @@ export default {
         this.list = response.data.items
         this.listLoading = false
       })
+    },
+    editPro(id) {
+      this.$router.push('/products/update/' + id,)
     }
   }
 }

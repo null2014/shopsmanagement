@@ -178,6 +178,22 @@ export const asyncRoutes = [
         meta: { title: 'ProductsList', icon: 'table' }
       }
     ]
+  },
+  {
+    path: '/charts',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'Charts',
+    alwaysShow: true,
+    meta: { title: 'Charts', icon: 'example', roles: ['admin'] },
+    children: [
+      {
+        path: 'mix-chart',
+        name: 'MixChart',
+        component: () => import('@/views/charts/mix-chart'),
+        meta: { title: 'MixChart', icon: 'table' }
+      }
+    ]
   }
 ]
 const createRouter = () => new Router({
