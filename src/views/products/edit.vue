@@ -1,35 +1,27 @@
 <template>
   <div class="app-container">
-    <el-form ref="form" :model="product" label-width="120px">
-      <el-form-item label="商品名稱">
-        <el-input v-model="product.name" />
+    <el-form ref="form" :model="productData" label-width="120px" size="mini">
+      <el-form-item label="商品名稱" prop="name">
+        <el-input v-model="productData.name" />
       </el-form-item>
-      <el-form-item label="商品價格">
-        <el-input v-model="product.price" placeholder="please select your zone">
-        </el-input>
+      <el-form-item label="商品價格" prop="price">
+        <el-input v-model="productData.price" placeholder="please select your zone" />
       </el-form-item>
-       <el-form-item>
-        <el-button type="primary" @click="onSubmit">編輯</el-button>
+      <el-form-item>
+        <el-button type="primary">編輯</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
+import { getList } from '@/api/product'
+
 export default {
   data() {
     return {
-      product: {
-        id: 5,
-        name: 'HUAWEI P30',
-        typeName: 'sss',
-        price: 2800,
-        salePrice: 3900,
-        createTime: '2019-10-10 12:10:12',
-        updateTime: '2019-10-10 13:10:12',
-        createUser: 1,
-        updataUser: 1
-      }
+      productData: [],
+      list: []
     }
   },
   created() {
@@ -38,17 +30,16 @@ export default {
   methods: {
     fetchDataById() {
       var id = this.$route.params.id
-      var vm = this
-      this.axios ({
-        methods: 'GET',
-        url: 'http://localhost:8090/product/getProductById?id=' + id
-      }).then(function(response) {
-        console.log(response)
-        this.product = response.data
+      getList().then(response => {
+        this.list = response.data.items
+        console.log(this.list)
+        for (const index in this.list) {
+          if (this.list[index].id === id) {
+            this.productData = this.list[index]
+            console.log('product:', productData)
+          }
+        }
       })
-    },
-    onSubmit() {
-
     }
   }
 }

@@ -79,7 +79,8 @@ export default {
       })
     },
     editPro(id) {
-      this.$router.push('/products/update/' + id,)
+      this.$router.push('/products/update/' + id)
+      console.log(id)
     }
   }
 }

@@ -157,6 +157,13 @@ export const asyncRoutes = [
         name: 'List',
         component: () => import('@/views/products/index'),
         meta: { title: '商品列表', icon: 'table' }
+      },
+      {
+        path: 'update/:id',
+        name: 'Update',
+        hidden: true,
+        component: () => import('@/views/products/edit'),
+        meta: { title: 'ProductsUpdate', icon: 'table' }
       }
     ]
   },

@@ -10,7 +10,7 @@ export function getList(params) {
 
 export function updateProduct(data) {
   return request({
-    url: '/product/update',
+    url: '/vue-admin-template/product/update',
     method: 'post',
     data
   })
