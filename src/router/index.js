@@ -201,6 +201,22 @@ export const asyncRoutes = [
         meta: { title: 'MixChart', icon: 'table' }
       }
     ]
+  },
+  {
+    path: '/excel',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'Excel',
+    alwaysShow: true,
+    meta: { title: 'Excel', icon: 'example', roles: ['admin'] },
+    children: [
+      {
+        path: 'upload-excel',
+        name: 'UploadExcel',
+        component: () => import('@/views/excel/upload-excel'),
+        meta: { title: 'UploadExcel', icon: 'table' }
+      }
+    ]
   }
 ]
 const createRouter = () => new Router({

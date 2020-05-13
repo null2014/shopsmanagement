@@ -4,11 +4,14 @@
       <el-form-item label="商品名稱" prop="name">
         <el-input v-model="productData.name" />
       </el-form-item>
+      <el-form-item label="產品名稱" prop="price">
+        <el-input v-model="productData.typeName" placeholder="please select your zone" />
+      </el-form-item>
       <el-form-item label="商品價格" prop="price">
         <el-input v-model="productData.price" placeholder="please select your zone" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary">編輯</el-button>
+        <el-button type="primary" @click="submit(id)">提交</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -21,7 +24,8 @@ export default {
   data() {
     return {
       productData: [],
-      list: []
+      list: [],
+      id: ''
     }
   },
   created() {
@@ -36,10 +40,13 @@ export default {
         for (const index in this.list) {
           if (this.list[index].id === id) {
             this.productData = this.list[index]
-            console.log('product:', productData)
+            console.log('product:', this.productData)
           }
         }
       })
+    },
+    submit(id) {
+
     }
   }
 }
