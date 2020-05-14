@@ -173,13 +173,29 @@ export const asyncRoutes = [
     redirect: 'noRedirect',
     name: 'Charts',
     alwaysShow: true,
-    meta: { title: 'Charts', icon: 'example', roles: ['admin'] },
+    meta: { title: 'Charts', icon: 'example' },
     children: [
       {
         path: 'mix-chart',
         name: 'MixChart',
-        component: () => import('@/views/charts/mix-chart'),
+        component: () => import('@/views/Charts/mix-chart'),
         meta: { title: 'MixChart', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/excel',
+    component: 'layout/Layout',
+    redirect: 'noRedirect',
+    name: 'Excel',
+    alwaysShow: true,
+    meta: { title: 'Excel', icon: 'example' },
+    children: [
+      {
+        path: 'upload-excel',
+        name: 'UploadExcel',
+        component: () => import('@/views/excel/upload-excel'),
+        meta: { title: 'UploadExcel', icon: 'table' }
       }
     ]
   }
