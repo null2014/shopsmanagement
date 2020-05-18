@@ -61,7 +61,7 @@ export default {
     handleClick(e) {
       const files = e.target.files
       const rawFile = files[0]
-      if (!rawFile)  return
+      if (!rawFile) return
       this.upload(rawFile)
     },
     upload(rawFile) {
