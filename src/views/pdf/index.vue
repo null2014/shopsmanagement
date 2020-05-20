@@ -11,14 +11,12 @@
   </div>
 </template>
 
-e>
-
 <script>
 export default {
   methods: {
     clickBtn() {
       console.log(this.$route)
     }
-  },
+  }
 }
 </script>

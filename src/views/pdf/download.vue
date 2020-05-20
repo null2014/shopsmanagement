@@ -35,7 +35,7 @@ export default {
           this.$nextTick(() => {
             window.print()
           })
-        }, 5000)
+        }, 3000)
       })
     }
   }

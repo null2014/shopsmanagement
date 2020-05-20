@@ -237,7 +237,8 @@ export const asyncRoutes = [
   {
     path: '/pdf/download',
     component: () => import('@/views/pdf/download'),
-    hidden: true
+    hidden: true,
+    meta: { roles: ['admin'] }
   }
 ]
 const createRouter = () => new Router({
