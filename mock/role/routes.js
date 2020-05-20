@@ -198,5 +198,26 @@ export const asyncRoutes = [
         meta: { title: 'UploadExcel', icon: 'table' }
       }
     ]
+  },
+  {
+    path: '/pdf',
+    component: 'layout/Layout',
+    redirect: 'noRedirect',
+    name: 'PDF',
+    alwaysShow: true,
+    meta: { title: 'PDF', icon: 'example' },
+    children: [
+      {
+        path: 'index',
+        name: 'PDF',
+        component: () => import('@/views/pdf/index'),
+        meta: { title: 'Download', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/pdf/download',
+    component: () => import('@/views/pdf/download'),
+    hidden: true
   }
 ]

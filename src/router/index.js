@@ -192,13 +192,13 @@ export const asyncRoutes = [
     redirect: 'noRedirect',
     name: 'Charts',
     alwaysShow: true,
-    meta: { title: 'Charts', icon: 'example', roles: ['admin'] },
+    meta: { title: 'Charts', icon: 'table', roles: ['admin'] },
     children: [
       {
         path: 'mix-chart',
         name: 'MixChart',
         component: () => import('@/views/charts/mix-chart'),
-        meta: { title: 'MixChart', icon: 'table' }
+        meta: { title: 'MixChart', icon: 'example' }
       }
     ]
   },
@@ -214,9 +214,30 @@ export const asyncRoutes = [
         path: 'upload-excel',
         name: 'UploadExcel',
         component: () => import('@/views/excel/upload-excel'),
-        meta: { title: 'UploadExcel', icon: 'table' }
+        meta: { title: 'UploadExcel', icon: 'table', roles: ['admin'] }
       }
     ]
+  },
+  {
+    path: '/pdf',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'Pdf',
+    alwaysShow: true,
+    meta: { title: 'PDF', icon: 'example', roles: ['admin'] },
+    children: [
+      {
+        path: 'index',
+        name: 'PDF',
+        component: () => import('@/views/pdf/index'),
+        meta: { title: 'Download', icon: 'table', roles: ['admin'] }
+      }
+    ]
+  },
+  {
+    path: '/pdf/download',
+    component: () => import('@/views/pdf/download'),
+    hidden: true
   }
 ]
 const createRouter = () => new Router({
