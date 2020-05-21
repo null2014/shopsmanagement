@@ -156,10 +156,7 @@ export const constantRoutes = [
         meta: { title: 'External Link', icon: 'link' }
       }
     ]
-  },
-
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  }
 ]
 
 export const asyncRoutes = [
@@ -237,8 +234,7 @@ export const asyncRoutes = [
   {
     path: '/pdf/download',
     component: () => import('@/views/pdf/download'),
-    hidden: true,
-    meta: { roles: ['admin'] }
+    hidden: true
   }
 ]
 const createRouter = () => new Router({
