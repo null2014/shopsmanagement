@@ -235,6 +235,25 @@ export const asyncRoutes = [
     path: '/pdf/download',
     component: () => import('@/views/pdf/download'),
     hidden: true
+  },
+  {
+    path: '/zip',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'Zip',
+    alwaysShow: true,
+    meta: {
+      title: 'ZIP', icon: 'example', roles: ['admin']
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/zip/index'),
+        meta: {
+          title: 'LIST', icon: 'example', roles: ['admin']
+        } 
+      }
+    ]
   }
 ]
 const createRouter = () => new Router({

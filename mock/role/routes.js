@@ -217,5 +217,26 @@ export const asyncRoutes = [
     component: () => import('@/views/pdf/download'),
     hidden: true
   },
+  {
+    path: '/zip',
+    component: 'layout/Layout',
+    redirect: 'noRedirect',
+    name: 'Zip',
+    alwaysShow: true,
+    meta: {
+      title: 'ZIP', icon: 'example', roles: ['admin']
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/zip/index'),
+        meta: {
+          title: 'LIST', icon: 'example', roles: ['admin']
+        } 
+      }
+    ]
+  },
+  /*同步攔截的時候 異步的東東嗨沒有處理完 所以放在異步攔截*/ 
+  /*頁面一刷新 addroutes 還沒添加路由就開始跳轉了 所以找不到路由就到404頁面 */
   { path: '*', redirect: '/404', hidden: true }
 ]

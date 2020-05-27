@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
 const data = Mock.mock({
-  'items|10': [{
+  'items|60': [{
     id: '@id',
     name: '@sentence(1, 5)',
     typeName: 'HUAWEI@integer(1, 30)',
